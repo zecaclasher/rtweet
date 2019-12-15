@@ -137,7 +137,7 @@ post_tweet <- function(status = "my first rtweet #rstats",
   ##   not count 1:1 toward the 280 character limit); i'm not sure when and how
   ##   this works (we'd need to know exactly *when* and *to what extent* URLs
   ##   get shorted), so this is an inexact solution
-  if (all(!is_tweet_length(status), !grepl("https?://\\S+", status))) {
+  if (!is_tweet_length(status)) {
     stop("cannot exceed 280 characters.", call. = FALSE)
   }
   if (length(status) > 1) {
